@@ -1,4 +1,3 @@
-<!-- https://simplehtmldom.sourceforge.io/manual.htm -->
 <?php
 include_once('simplehtmldom/simple_html_dom.php');
 // Create DOM from URL or file
@@ -42,4 +41,17 @@ $html = str_get_html('
 $html = file_get_html('http://2school.vn/');
 // Create a DOM object from a HTML file
 $html = file_get_html('test.html');
-echo $html;
+// echo $html;
+// Create a DOM object
+$html1 = new simple_html_dom();
+// Load HTML from a string
+// $html1->load('
+//   <html>
+//     <body>Hello every body!</body>
+//   </html>
+// ');
+// Load HTML from a URL 
+// $html1->load_file('http://2school.vn/');
+// Load HTML from a HTML file 
+$html1->load_file('test.html');
+echo $html1;
