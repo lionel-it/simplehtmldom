@@ -20,4 +20,15 @@ $html->find('div[id=hello]', 0)->innertext = 'Foo';
 $html->find('div', 1)->class = 'bar';
 // echo $html; 
 // Output: <div id="hello">foo</div><div id="world" class="bar">World</div>
-echo file_get_html('http://2school.vn/')->plaintext; 
+// echo file_get_html('http://2school.vn/')->plaintext; 
+// Create DOM from URL
+$html = file_get_html('http://2school.vn/');
+// Find all article blocks
+$articles = array();
+foreach($html->find('div.list-lession') as $article) {
+    $item['intro']    = $article->find('ul', 0) -> plaintext;
+    $articles[] = $item;
+}
+echo '<pre>';
+  // print_r($articles);
+echo '</pre>';
