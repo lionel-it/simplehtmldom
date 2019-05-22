@@ -54,4 +54,20 @@ $html1 = new simple_html_dom();
 // $html1->load_file('http://2school.vn/');
 // Load HTML from a HTML file 
 $html1->load_file('test.html');
-echo $html1;
+// echo $html1;
+$html = file_get_html('http://2school.vn/');
+// Find all anchors, returns a array of element objects
+$html2 = new simple_html_dom();
+$html2->load_file('test.html');
+$ret = $html2->find('a');
+echo "<pre>";
+  // print_r($ret);
+echo "<pre/>";
+// Find (N)th anchor, returns element object or null if not found (zero based)
+// $ret = $html->find('a', 0);
+// Find lastest anchor, returns element object or null if not found (zero based)
+// $ret = $html->find('a', -1); 
+// Find all <div> with the id attribute
+// $ret = $html->find('div[id]');
+// Find all <div> which attribute id=foo
+// $ret = $html->find('div[id=foo]'); 
