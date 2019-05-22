@@ -8,7 +8,15 @@ $img = array();
 foreach($html->find('img') as $element) {
   $img[] = '<img src="'.$element->src.'" alt="'.$element->alt.'">';
 }
-print_r($img);
+// print_r($img);
 ?>
-<!-- // Find all links 
-// foreach($html->find('a') as $element) echo $element->href . '<br>'; -->
+<?php
+// Create DOM from string
+$html = str_get_html('
+  <div id="hello">Hello</div>
+  <div id="world">World</div>
+');
+$html->find('div[id=hello]', 0)->innertext = 'Foo';
+$html->find('div', 1)->class = 'bar';
+echo $html; 
+// Output: <div id="hello">foo</div><div id="world" class="bar">World</div>
