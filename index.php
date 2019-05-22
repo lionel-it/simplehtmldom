@@ -129,3 +129,15 @@ $es1 = $html7->find('ul', 0)->find('li', 0);
 // [attribute^=value]  Matches elements that have the specified attribute and it starts with a certain value.
 // [attribute$=value]  Matches elements that have the specified attribute and it ends with a certain value.
 // [attribute*=value]  Matches elements that have the specified attribute and it contains a certain value.
+// Find all text blocks 
+$html8 = new simple_html_dom();
+$html8->load_file('test.html');
+// $es8 = $html8->find('text');
+echo "<pre>";
+  // print_r($es8);
+echo "<pre/>";
+// Find all comment (<!--...-->) blocks 
+$es8  = $html->find('comment');
+echo "<pre>";
+  // print_r($es8);
+echo "<pre/>";
