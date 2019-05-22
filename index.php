@@ -64,10 +64,35 @@ echo "<pre>";
   // print_r($ret);
 echo "<pre/>";
 // Find (N)th anchor, returns element object or null if not found (zero based)
-// $ret = $html->find('a', 0);
+$html3 = new simple_html_dom();
+$html3->load_file('test.html');
+$ret3 = $html3->find('a', 0);
+echo "<pre>";
+  // print_r($ret3);
+echo "<pre/>";
 // Find lastest anchor, returns element object or null if not found (zero based)
-// $ret = $html->find('a', -1); 
+$html4 = new simple_html_dom();
+$html4->load_file('test.html');
+$ret4 = $html4->find('a', -1);
+echo "<pre>";
+  // print_r($ret4);
+echo "<pre/>";
 // Find all <div> with the id attribute
 // $ret = $html->find('div[id]');
 // Find all <div> which attribute id=foo
 // $ret = $html->find('div[id=foo]'); 
+// Find all element which id=foo
+$html5 = new simple_html_dom();
+$html5->load_file('test.html');
+$ret5 = $html5->find('#foo');
+echo "<pre>";
+  print_r($ret5);
+echo "<pre/>";
+// Find all element which class=foo
+$ret5 = $html5->find('.foo');
+// Find all element has attribute id
+$ret5 = $html5->find('*[id]'); 
+// Find all anchors and images 
+$ret5 = $html5->find('a, img'); 
+// Find all anchors and images with the "title" attribute
+$ret5 = $html5->find('a[title], img[title]');
