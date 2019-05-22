@@ -86,7 +86,7 @@ $html5 = new simple_html_dom();
 $html5->load_file('test.html');
 $ret5 = $html5->find('#foo');
 echo "<pre>";
-  print_r($ret5);
+  // print_r($ret5);
 echo "<pre/>";
 // Find all element which class=foo
 $ret5 = $html5->find('.foo');
@@ -96,3 +96,28 @@ $ret5 = $html5->find('*[id]');
 $ret5 = $html5->find('a, img'); 
 // Find all anchors and images with the "title" attribute
 $ret5 = $html5->find('a[title], img[title]');
+$html6 = new simple_html_dom();
+$html6->load_file('test.html');
+// Find all <li> in <ul> 
+$es = $html6->find('ul li');
+// Find Nested <div> tags
+$es = $html6->find('div div div'); 
+// Find all <td> in <table> which class=hello 
+$es = $html6->find('table.hello td');
+// Find all td tags with attribite align=center in table tags 
+$es = $html6->find('table td[align=center]');
+$html7 = new simple_html_dom();
+$html7->load_file('test.html');
+// Find all <li> in <ul> 
+$i = 1;
+foreach($html7->find('ul') as $ul) 
+{
+  foreach($ul->find('li') as $li) 
+  {
+      echo $i.' - '.$li->innertext."<br/>";
+      $i++;
+  }
+}
+// Find first <li> in first <ul> 
+$es1 = $html7->find('ul', 0)->find('li', 0);
+echo $es1;
