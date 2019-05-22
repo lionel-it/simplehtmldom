@@ -32,3 +32,14 @@ foreach($html->find('div.list-lession') as $article) {
 echo '<pre>';
   // print_r($articles);
 echo '</pre>';
+// Create a DOM object from a string
+$html = str_get_html('
+  <html>
+    <body>Hello!</body>
+  </html>
+');
+// Create a DOM object from a URL
+$html = file_get_html('http://2school.vn/');
+// Create a DOM object from a HTML file
+$html = file_get_html('test.html');
+echo $html;
