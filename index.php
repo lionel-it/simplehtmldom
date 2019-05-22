@@ -114,10 +114,18 @@ foreach($html7->find('ul') as $ul)
 {
   foreach($ul->find('li') as $li) 
   {
-      echo $i.' - '.$li->innertext."<br/>";
+      // echo $i.' - '.$li->innertext."<br/>";
       $i++;
   }
 }
 // Find first <li> in first <ul> 
 $es1 = $html7->find('ul', 0)->find('li', 0);
-echo $es1;
+// echo $es1;
+// Filter  Description
+// [attribute] Matches elements that have the specified attribute.
+// [!attribute]  Matches elements that don't have the specified attribute.
+// [attribute=value] Matches elements that have the specified attribute with a certain value.
+// [attribute!=value]  Matches elements that don't have the specified attribute with a certain value.
+// [attribute^=value]  Matches elements that have the specified attribute and it starts with a certain value.
+// [attribute$=value]  Matches elements that have the specified attribute and it ends with a certain value.
+// [attribute*=value]  Matches elements that have the specified attribute and it contains a certain value.
