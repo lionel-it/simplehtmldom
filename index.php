@@ -18,5 +18,6 @@ $html = str_get_html('
 ');
 $html->find('div[id=hello]', 0)->innertext = 'Foo';
 $html->find('div', 1)->class = 'bar';
-echo $html; 
+// echo $html; 
 // Output: <div id="hello">foo</div><div id="world" class="bar">World</div>
+echo file_get_html('http://2school.vn/')->plaintext; 
