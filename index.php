@@ -1,12 +1,14 @@
 <!-- https://simplehtmldom.sourceforge.io/manual.htm -->
 <?php
 include_once('simplehtmldom/simple_html_dom.php');
-$url = 'http://thethao.vnexpress.net/photo/hau-truong/hom-nay-hoang-xuan-vinh-ve-nuoc-nguyen-tien-minh-quyet-dau-lin-dan-3452035.html';
-$html = file_get_html($url);
-$html->find('.block_thumb_slide_show',0)->outertext='';
-$html ->load($html ->save());
-$tieude = $html->find('.title_news',0);
-$noidung = $html->find('#article_content',0);
+// Create DOM from URL or file
+$html = file_get_html('http://2school.vn/');
+// Find all images 
+$img = array();
+foreach($html->find('img') as $element) {
+  $img[] = '<img src="'.$element->src.'" alt="'.$element->alt.'">';
+}
+print_r($img);
 ?>
-<h1><?=$tieude->plaintext?></h1>
-<div id="content"><?=$noidung->innertext?></div>
+<!-- // Find all links 
+// foreach($html->find('a') as $element) echo $element->href . '<br>'; -->
