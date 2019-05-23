@@ -161,8 +161,24 @@ $html = str_get_html("
     <b>Bar</b>
   </div>
 "); 
-$e = $html->find("div", 0);
-echo $e->tag .'<hr/>'; // Returns: " div"
-echo $e->outertext .'<hr/>'; // Returns: " <div>foo <b>bar</b></div>"
-echo $e->innertext .'<hr/>'; // Returns: " foo <b>bar</b>"
-echo $e->plaintext; // Returns: " foo bar"
+// $e = $html->find("div", 0);
+// echo $e->tag .'<hr/>'; // Returns: " div"
+// echo $e->outertext .'<hr/>'; // Returns: " <div>foo <b>bar</b></div>"
+// echo $e->innertext .'<hr/>'; // Returns: " foo <b>bar</b>"
+// echo $e->plaintext; // Returns: " foo bar"
+// ================
+// Extract contents from HTML 
+$html10 = new simple_html_dom();
+$html10->load_file('test.html');
+// echo $html10->plaintext;
+// Wrap a element
+// $html10->outertext = '<div class="wrap">' . $html10->outertext . '<div>';
+// echo $html10->outertext;
+// Remove a element, set it's outertext as an empty string 
+// $html10->outertext = '';
+// Append a element
+// $html10->outertext = $html10->outertext . '<div class="lionel">Foo</div>';
+// echo $html10->outertext;
+// Insert a element
+$html10->outertext = '<div>Foo</div>' . $html10->outertext;
+echo $html10->outertext;
