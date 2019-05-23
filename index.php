@@ -119,7 +119,7 @@ foreach($html7->find('ul') as $ul)
   }
 }
 // Find first <li> in first <ul> 
-$es1 = $html7->find('ul', 0)->find('li', 0);
+// $es1 = $html7->find('ul', 0)->find('li', 0);
 // echo $es1;
 // Filter  Description
 // [attribute] Matches elements that have the specified attribute.
@@ -137,7 +137,20 @@ echo "<pre>";
   // print_r($es8);
 echo "<pre/>";
 // Find all comment (<!--...-->) blocks 
-$es8  = $html->find('comment');
+$es8  = $html8->find('comment');
 echo "<pre>";
   // print_r($es8);
 echo "<pre/>";
+// Get, Set and Remove attributes
+// Get a attribute ( If the attribute is non-value attribute (eg. checked, selected...), it will returns true or false)
+$pi = new simple_html_dom();
+$pi->load_file('test.html');
+$e = $pi->find('a',0);
+if(isset($e->href)) echo 'href exist!';
+// $value = $e->href;
+// Set a attribute(If the attribute is non-value attribute (eg. checked, selected...), set it's value as true or false)
+// $e->href = 'my link';
+// Remove a attribute, set it's value as null! 
+// $e->href = null;
+// Determine whether a attribute exist? 
+// if(isset($e->href)) echo 'href exist!';
