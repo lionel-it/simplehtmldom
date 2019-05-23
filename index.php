@@ -145,8 +145,8 @@ echo "<pre/>";
 // Get a attribute ( If the attribute is non-value attribute (eg. checked, selected...), it will returns true or false)
 $pi = new simple_html_dom();
 $pi->load_file('test.html');
-$e = $pi->find('a',0);
-if(isset($e->href)) echo 'href exist!';
+// $e = $pi->find('a',0);
+// if(isset($e->href)) echo 'href exist!';
 // $value = $e->href;
 // Set a attribute(If the attribute is non-value attribute (eg. checked, selected...), set it's value as true or false)
 // $e->href = 'my link';
@@ -154,3 +154,15 @@ if(isset($e->href)) echo 'href exist!';
 // $e->href = null;
 // Determine whether a attribute exist? 
 // if(isset($e->href)) echo 'href exist!';
+// Example
+$html = str_get_html("
+  <div>
+    Foo
+    <b>Bar</b>
+  </div>
+"); 
+$e = $html->find("div", 0);
+echo $e->tag .'<hr/>'; // Returns: " div"
+echo $e->outertext .'<hr/>'; // Returns: " <div>foo <b>bar</b></div>"
+echo $e->innertext .'<hr/>'; // Returns: " foo <b>bar</b>"
+echo $e->plaintext; // Returns: " foo bar"
