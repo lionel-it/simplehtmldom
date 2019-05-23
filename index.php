@@ -203,9 +203,21 @@ echo "<br/>";
 // $e->next_sibling () //	Returns the next sibling of element, or null if not found.
 // $e->prev_sibling ();
 // Dumps the internal DOM tree back into string 
-$html12 = new simple_html_dom();
-$html12->load_file('test.html');
-$str = $html12->save();
-echo $str; 
+// $html12 = new simple_html_dom();
+// $html12->load_file('test.html');
+// $str = $html12->save();
+// echo $str; 
 // Dumps the internal DOM tree back into a file 
-$html12->save('result.html');
+// $html12->save('result.html');
+// Write a function with parameter "$element"
+$html13 = new simple_html_dom();
+$html13->load_file('test.html');
+function my_callback($element) {
+  // Hide all <b> tags 
+  if ($element->tag=='b') $element->outertext = '';
+} 
+// Register the callback function with it's function name
+$html13->set_callback('my_callback');
+
+// Callback function will be invoked while dumping
+echo $html13;
