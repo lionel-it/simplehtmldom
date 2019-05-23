@@ -180,5 +180,19 @@ $html10->load_file('test.html');
 // $html10->outertext = $html10->outertext . '<div class="lionel">Foo</div>';
 // echo $html10->outertext;
 // Insert a element
-$html10->outertext = '<div>Foo</div>' . $html10->outertext;
-echo $html10->outertext;
+// $html10->outertext = '<div>Foo</div>' . $html10->outertext;
+// echo $html10->outertext;
+// If you are not so familiar with HTML DOM, check this link to learn more... 
+// Example
+$html11 = new simple_html_dom();
+$html11->load_file('test.html');
+// echo $html11->find("#div1", 0)->children(1)->children(1)->children(2)->id;
+echo "<br/>";
+  // print_r($html11->find("#div1", 0)->children(1)->id);
+echo "<br/>";
+// span1.2
+// or 
+echo "<br/>";
+  // echo $html11->getElementById("div1")->childNodes(1)->getAttribute('id');
+echo "<br/>";
+// span1.2
