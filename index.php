@@ -196,9 +196,16 @@ echo "<br/>";
   // echo $html11->getElementById("div1")->childNodes(1)->getAttribute('id');
 echo "<br/>";
 // span1.2
-$e->children ( [int $index] ) //	Returns the Nth child object if index is set, otherwise return an array of children.
-$e->parent ()	// Returns the parent of element.
-$e->first_child () //	Returns the first child of element, or null if not found.
-$e->last_child () //	Returns the last child of element, or null if not found.
-$e->next_sibling () //	Returns the next sibling of element, or null if not found.
-$e->prev_sibling ();
+// $e->children ( [int $index] ) //	Returns the Nth child object if index is set, otherwise return an array of children.
+// $e->parent ()	// Returns the parent of element.
+// $e->first_child () //	Returns the first child of element, or null if not found.
+// $e->last_child () //	Returns the last child of element, or null if not found.
+// $e->next_sibling () //	Returns the next sibling of element, or null if not found.
+// $e->prev_sibling ();
+// Dumps the internal DOM tree back into string 
+$html12 = new simple_html_dom();
+$html12->load_file('test.html');
+$str = $html12->save();
+echo $str; 
+// Dumps the internal DOM tree back into a file 
+$html12->save('result.html');
